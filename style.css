@@ -1,0 +1,38 @@
+*{ 
+    font-family: sans-serif;
+}
+.navbar {
+    height: 95px;
+    text-align: center;
+}
+
+.card-spacing {
+    margin-left: 20px;
+}
+
+.todayForecast{
+    height: 50px;
+    border-radius: 15%;
+}
+
+.forecast {
+    margin: 50px;
+}
+
+li:hover{
+    border-radius: 3px;
+    background-color: rgb(173, 255, 228);
+    cursor: pointer;
+}
+
+button {
+    border-radius: 9px;
+    margin-top: 1px;
+    border-color: rgb(211, 232, 251);
+    background-color: rgb(58, 6, 131);
+    color: aliceblue;
+}
+
+.container {
+    width: 150%;
+}
