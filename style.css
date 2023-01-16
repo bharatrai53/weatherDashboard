@@ -36,3 +36,7 @@ button {
 .container {
     width: 150%;
 }
+
+#currentTemp {
+    margin-left: 325px;
+}

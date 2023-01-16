@@ -1,7 +1,8 @@
 var previousSearches = [];
 
-// Function to handle the search process
+//handle the search process
 function searchCity() {
+  document.getElementById("currentTemp").innerHTML = "";
   document.getElementById("cardHolder").innerHTML = "";
   let city = getCityName();
   saveToPreviousSearches(city);
@@ -10,12 +11,12 @@ function searchCity() {
 }
 
 
-// Function to get the city name from user input
+//get the city name from user input
 function getCityName() {
   return document.getElementById("citySearchEntry").value;
 }
 
-// Function to save the current city name to previous searches
+//save the current city name to previous searches
 function saveToPreviousSearches(city) {
   if (localStorage.getItem("previousSearches")) {
     previousSearches = JSON.parse(localStorage.getItem("previousSearches"));
@@ -24,7 +25,7 @@ function saveToPreviousSearches(city) {
   localStorage.setItem("previousSearches", JSON.stringify(previousSearches));
 }
 
-// Function to make API request and get the weather data
+//make API request and get the weather data
 function getForecast(city) {
   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=3e1dd7d0420bdf9e5a6b806b1cedb6bb`, {
     cache: 'reload',
@@ -42,11 +43,11 @@ function getCurrentWeather(city) {
       var currentTemperature = data.main.temp;
       console.log(data)
       var currentTemperatureInFahrenheit = (currentTemperature - 273.15) * 9 / 5 + 32;
-      //create a new element to show the current temperature
+      //show the current temperature
       var currentTempElem = document.createElement("p");
       currentTempElem.textContent = "Current Temperature: " + currentTemperatureInFahrenheit.toFixed(2) + "°F";
       //append it to the HTML
-      document.getElementById("todayForecast").appendChild(currentTempElem);
+      document.getElementById("currentTemp").appendChild(currentTempElem);
     })
     .catch(error => console.error(error));
 }
